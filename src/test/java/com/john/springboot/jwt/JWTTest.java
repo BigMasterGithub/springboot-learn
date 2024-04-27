@@ -42,7 +42,8 @@ public class JWTTest {
     public void test02(){
         String testedToken="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJrZXlfMiI6eyJpZCI6IjEyMyIsInVzZXJuYW1lIjoi5byg5LiJIn0sImtleV8xIjp7ImlkIjo" +
                 "iMTIzIiwidXNlcm5hbWUiOiLlvKDkuIkifSwiZXhwIjoxNzE0MTg1NDAyfQ." +
-                "JQBMYlBOKoCd-lYnnsqgbjOePNHRCTmNbcvljeplE6s";
+                "JQBMYlBOKoCd-lYnnsqgbjOePNHRCTmNbcvljeplE6s" +
+                "";
 
         JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256("密钥xx")).build();
         DecodedJWT actualInfo = jwtVerifier.verify(testedToken);

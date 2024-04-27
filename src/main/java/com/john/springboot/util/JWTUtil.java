@@ -17,7 +17,9 @@ public class JWTUtil {
      * @return java.lang.String
      */
     public static String generateToken(Map<String, Object> claims) {
-        return JWT.create().withClaim("claims", claims).withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 12)).sign(Algorithm.HMAC256(KEY));
+        return JWT.create().withClaim("claims", claims)
+                .withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 12))
+                .sign(Algorithm.HMAC256(KEY));
     }
 
     /*
@@ -27,7 +29,12 @@ public class JWTUtil {
      * @return java.util.Map<java.lang.String,java.lang.Object>
      */
     public static Map<String, Object> parseToken(String token) {
-        return JWT.require(Algorithm.HMAC256(KEY)).build().verify(token).getClaim("claims").asMap();
+        return JWT
+                .require(Algorithm.HMAC256(KEY))
+                .build()
+                .verify(token)
+                .getClaim("claims")
+                .asMap();
 
     }
 
