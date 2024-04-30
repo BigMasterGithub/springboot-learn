@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Pattern;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -29,9 +30,25 @@ public class UserController {
      * @return java.lang.String
      */
     @GetMapping("/hello")
-
     public String hello(@Pattern(regexp = "^\\S{5,10}") String name) {
         return "Hello World";
+    }
+
+    @GetMapping("/search")
+    public List<User> search(@RequestParam(name = "name") String name) {
+        List<User> users = userMapper.selectList(new QueryWrapper<User>().like("username", name));
+
+        return users;
+    }
+
+
+
+    @GetMapping("/user/getAll")
+    public List<User> getAll() {
+
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        List<User> users = userMapper.selectList(queryWrapper);
+        return users;
     }
 
     @PostMapping("/login")
