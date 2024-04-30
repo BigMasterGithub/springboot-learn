@@ -38,3 +38,17 @@ Springboot 多环境的配置方法
 1. application-xxx.yaml 为xxx环境的属性信息
 2. 在application.yaml中激活对应的环境信息
 （3）方法三：在方法二的基础上为各个环境进行分组配置。
+   applicaton-dev-123.yaml
+   applicaton-dev-234.yaml
+   applicaton-dev-345.yaml
+
+   applicaton-test-123.yaml
+   applicaton-test-234.yaml
+   applicaton-test-345.yaml
+
+git学习笔记
+
+.gitignore 中编写即生效
+如果远程仓库已经存在忽略的目录
+在本地仓库使用 git rm -r --cached xxx
+然后强制推到远程仓库上去 git push origin  --force
