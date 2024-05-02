@@ -23,6 +23,6 @@ public class SpringbootDemoApplication implements ApplicationRunner
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println("localhost:"+env.getProperty("local.server.port"));
+        System.out.println("http://127.0.0.1/:"+env.getProperty("local.server.port"));
     }
 }

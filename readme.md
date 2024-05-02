@@ -48,7 +48,6 @@ Springboot 多环境的配置方法
 
 git学习笔记
 
-.gitignore 中编写即生效
-如果远程仓库已经存在忽略的目录
-在本地仓库使用 git rm -r --cached xxx
-然后强制推到远程仓库上去 git push origin  --force
+1. .gitignore 中忽略的内容即时生效，比如添加 /target 后保存，那么当前目录中的/target 自动被忽略，不在出现在untracked列表中
+2. 如果本地已经使用 git add /target ，那么可以使用 git rm -r --cached /target 来清除被追踪的文件，再调用git status发现/target目录已经被忽略
+3. 如果远程仓库已经存在想要忽略的文件，可以先在本地仓库使用 git rm -r --cached xxx，清除该文件，然后强制推送到到远程仓库上去 git push origin  --force

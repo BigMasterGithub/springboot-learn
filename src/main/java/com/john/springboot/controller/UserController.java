@@ -34,7 +34,7 @@ public class UserController {
         return "Hello World";
     }
 
-    @GetMapping("/search")
+    @GetMapping("/user/search")
     public List<User> search(@RequestParam(name = "name") String name) {
         List<User> users = userMapper.selectList(new QueryWrapper<User>().like("username", name));
 
